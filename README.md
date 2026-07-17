@@ -70,7 +70,7 @@ Make sure you have Python installed (Python 3.8+ recommended) and Git.
 4.  **Set up Environment Variables:**
     Create a `.env` file in the root directory (or use Streamlit secrets) and add your Gemini API key:
     ```env
-    GEMINI_API_KEY=your_google_gemini_api_key_here
+    GOOGLE_API_KEY=your_google_gemini_api_key_here
     ```
 
 5.  **Run the Streamlit application:**
