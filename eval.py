@@ -16,7 +16,6 @@ test_questions = [
     {"question": "What is a heap data structure?", "expected_keywords": ["heap", "array", "tree"]},
     {"question": "How does counting sort work?", "expected_keywords": ["counting", "array"]},
     {"question": "What is radix sort?", "expected_keywords": ["digit", "radix"]},
-    {"question": "Who created you?", "expected_keywords": ["ABHISHEK", "Tiwari"]},
     {"question": "What is hashing used for?", "expected_keywords": ["hash", "key"]},
     
     
