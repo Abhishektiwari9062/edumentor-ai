@@ -2,7 +2,7 @@ import time
 from query import ask
 
 def is_grounded(answer, expected_keywords):
-    no_info_phrases = ["don't have enough information ABHSIHEK SIR", "do not have enough information", "not enough information"]
+    no_info_phrases = ["don't have enough information", "do not have enough information", "not enough information"]
     if any(phrase in answer.lower() for phrase in no_info_phrases):
         return False
     return any(kw.lower() in answer.lower() for kw in expected_keywords)
