@@ -1,19 +1,11 @@
-[theme]
-# The main accent color (used for primary buttons, sliders, active tabs)
-# Using a muted, sophisticated gray-brown instead of the default bright pink
+
 primaryColor = "#736B66"
 
-# The main background color of the app
-# Claude uses a soft, paper-like off-white/beige to reduce eye strain
 backgroundColor = "#F9F8F6"
 
-# The background color for the sidebar and interactive widgets
-# A slightly darker beige to create subtle contrast
+
 secondaryBackgroundColor = "#F2F0ED"
 
-# The main text color
-# A dark, muted charcoal instead of pure black for softer reading
 textColor = "#2D2B2A"
 
-# Font family (sans serif keeps it modern and clean)
 font = "sans serif"
