@@ -73,7 +73,7 @@ with tab1:
     # Render chat history
     for msg in st.session_state.messages:
         # Using subtle text/icon representation instead of heavy graphics
-        avatar = "✦" if msg["role"] == "assistant" else "👤"
+        avatar = "✨" if msg["role"] == "assistant" else "👤"
         with st.chat_message(msg["role"], avatar=avatar):
             st.markdown(msg["content"])
 
@@ -85,7 +85,7 @@ with tab1:
             st.markdown(prompt)
 
         # Generate and display assistant response
-        with st.chat_message("assistant", avatar="✦"):
+        with st.chat_message("assistant", avatar="✨"):
             with st.spinner("Analyzing context..."):
                 answer, sources = ask(prompt)
             
