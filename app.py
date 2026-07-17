@@ -43,3 +43,4 @@ with tab3:
         st.warning("Topics to review: " + ", ".join(weak))
     else:
         st.info("No weak topics yet — take a quiz first!")
+        
