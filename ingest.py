@@ -1,7 +1,7 @@
 import os
 from dotenv import load_dotenv
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import FAISS
 
@@ -19,6 +19,8 @@ def load_documents():
             docs.extend(loader.load())
     return docs
 
+import time
+
 def main():
     print("Loading PDFs...")
     docs = load_documents()
@@ -28,9 +30,18 @@ def main():
     chunks = splitter.split_documents(docs)
     print(f"Split into {len(chunks)} chunks.")
 
-    print("Embedding chunks (may take a minute)...")
-    embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-    vectorstore = FAISS.from_documents(chunks, embeddings)
+    embeddings = GoogleGenerativeAIEmbeddings(model="models/gemini-embedding-001", google_api_key=os.getenv("GOOGLE_API_KEY"))
+
+    batch_size = 20
+    vectorstore = None
+    for i in range(0, len(chunks), batch_size):
+        batch = chunks[i:i + batch_size]
+        print(f"Embedding batch {i // batch_size + 1} of {(len(chunks) - 1) // batch_size + 1}...")
+        if vectorstore is None:
+            vectorstore = FAISS.from_documents(batch, embeddings)
+        else:
+            vectorstore.add_documents(batch)
+        time.sleep(15)  # pace requests to stay under the free-tier rate limit
 
     vectorstore.save_local(INDEX_DIR)
     print(f"Index saved to {INDEX_DIR}/")

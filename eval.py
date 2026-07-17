@@ -1,17 +1,22 @@
 import time
 from query import ask
 
-# Each question can have MULTIPLE acceptable keywords — grounded if ANY appear
+def is_grounded(answer, expected_keywords):
+    no_info_phrases = ["don't have enough information", "do not have enough information", "not enough information"]
+    if any(phrase in answer.lower() for phrase in no_info_phrases):
+        return False
+    return any(kw.lower() in answer.lower() for kw in expected_keywords)
+
 test_questions = [
-    {"question": "What is the purpose of cache memory?", "expected_keywords": ["speed", "access time", "faster"]},
-    {"question": "What is a cache replacement algorithm?", "expected_keywords": ["LRU", "FCFS", "replace"]},
-    {"question": "What is direct mapping in cache memory?", "expected_keywords": ["block", "line", "direct"]},
-    {"question": "What is set associative mapping?", "expected_keywords": ["set", "associative"]},
-    {"question": "What does LRU stand for?", "expected_keywords": ["least recently used"]},
-    {"question": "What is dynamic programming?", "expected_keywords": ["optimal substructure", "overlapping subproblem", "memoization"]},
-    {"question": "What is Huffman coding used for?", "expected_keywords": ["binary tree", "compression", "encoding"]},
-    {"question": "What is average memory access time?", "expected_keywords": ["hit rate", "hit ratio", "access time"]},
-    {"question": "What is a tag directory in cache memory?", "expected_keywords": ["tag", "cache line", "cache"]},
+    {"question": "What is asymptotic notation used for?", "expected_keywords": ["running time", "growth", "bound", "algorithm"]},
+    {"question": "What is Big-O notation?", "expected_keywords": ["upper bound", "worst case", "O("]},
+    {"question": "What is the master method used for?", "expected_keywords": ["recurrence", "master"]},
+    {"question": "How does merge sort work?", "expected_keywords": ["divide", "merge", "sub-problem"]},
+    {"question": "How does quicksort work?", "expected_keywords": ["partition", "pivot"]},
+    {"question": "What is a heap data structure?", "expected_keywords": ["heap", "array", "tree"]},
+    {"question": "How does counting sort work?", "expected_keywords": ["counting", "array"]},
+    {"question": "What is radix sort?", "expected_keywords": ["digit", "radix"]},
+    {"question": "What is hashing used for?", "expected_keywords": ["hash", "key"]},
 ]
 
 def run_eval():
@@ -20,7 +25,7 @@ def run_eval():
         start = time.time()
         answer, docs = ask(item["question"])
         elapsed = time.time() - start
-        grounded = any(kw.lower() in answer.lower() for kw in item["expected_keywords"])
+        grounded = is_grounded(answer, item["expected_keywords"])
         results.append({"question": item["question"], "grounded": grounded, "latency_sec": round(elapsed, 2)})
         print(f"Q: {item['question']}\n  Answer: {answer[:200]}\n  Grounded: {grounded} | Time: {elapsed:.2f}s\n")
 
