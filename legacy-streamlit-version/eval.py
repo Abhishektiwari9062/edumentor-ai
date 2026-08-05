@@ -1,5 +1,5 @@
 import time
-from query import ask
+from backend.query import ask
 
 def is_grounded(answer, expected_keywords):
     no_info_phrases = ["don't have enough information", "do not have enough information", "not enough information"]

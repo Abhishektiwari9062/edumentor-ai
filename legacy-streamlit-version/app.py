@@ -1,6 +1,6 @@
 import streamlit as st
-from query import ask
-from quiz import generate_quiz, save_result, get_weak_topics
+from backend.query import ask
+from backend.quiz import generate_quiz, save_result, get_weak_topics
 
 st.set_page_config(page_title="EduMentor AI", page_icon="🎓")
 st.title("🎓 EduMentor AI")

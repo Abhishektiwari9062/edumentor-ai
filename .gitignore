@@ -1,3 +1,31 @@
+# --- Python / Backend ---
+__pycache__/
+*.pyc
+.venv/
 venv/
+*.env
 .env
-*.index
+backend/.env
+jarvis_memory.db
+backend/jarvis_memory.db
+
+# --- Node / Frontend ---
+node_modules/
+frontend/node_modules/
+.next/
+frontend/.next/
+out/
+frontend/.env.local
+.vercel
+
+# --- OS junk ---
+.DS_Store
+*.pem
+
+# --- Logs ---
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+next-env.d.ts

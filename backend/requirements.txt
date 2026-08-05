@@ -7,3 +7,10 @@ langchain-google-genai
 faiss-cpu
 pypdf
 python-dotenv
+fastapi
+uvicorn[standard]
+python-multipart
+langchain
+faiss-cpu
+google-generativeai
+python-dotenv
