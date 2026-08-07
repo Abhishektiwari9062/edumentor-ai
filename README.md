@@ -112,7 +112,13 @@ To deploy your own copy:
 3. On Vercel: Add New Project → connect the frontend repo → set `NEXT_PUBLIC_API_URL` to your Render URL
 
 ---
+## System Interface
 
+**Initialization Sequence**
+![Loading Screen](assets/loading-screen.png)
+
+**Main Dashboard & Comms**
+![Main Dashboard](assets/main-dashboard.png)
 ## ⚠️ Known Limitations
 
 - Render's free tier has an **ephemeral filesystem** — uploaded PDFs and the growing FAISS index reset on redeploy or extended inactivity. Fine for live demos; a persistent vector DB (Pinecone, Supabase pgvector) would be the fix for true permanence.
