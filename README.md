@@ -1,3 +1,8 @@
+## 🔗 Live Demo
+Frontend: https://edumentor-ai-54o3.vercel.app
+Backend API docs: https://edumentor-backend-8fb8.onrender.com/docs
+
+
 # EduMentor AI 🎓🤖
 
 An AI-powered tutoring assistant with a JARVIS-inspired voice interface, a live 2050-style holographic UI, retrieval-augmented answers grounded in your own course material, and the ability to grow its own knowledge base from user-uploaded PDFs.
