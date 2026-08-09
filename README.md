@@ -1,5 +1,6 @@
 ## 🔗 Live Demo
-Frontend: https://edumentor-ai-54o3.vercel.app /n/n
+Frontend: https://edumentor-ai-54o3.vercel.app
+
 Backend API docs: https://edumentor-backend-8fb8.onrender.com/docs
 
 
